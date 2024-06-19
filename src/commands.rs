@@ -4,6 +4,8 @@ use poise::Framework;
 
 use crate::config::CONFIG;
 
+mod rustle_bag;
+
 pub struct Data;
 
 pub type Error = Box<dyn std::error::Error + Send + Sync>;
@@ -14,7 +16,7 @@ pub fn init_slash_commands() -> Framework<Data, Error> {
     poise::Framework::builder()
         .options(poise::FrameworkOptions 
             { 
-                commands: vec![], 
+                commands: vec![rustle_bag::rustle_bag()], 
                 ..Default::default()
             }
         )
